@@ -1,0 +1,148 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:local="clr-namespace:WireNet.Client.View.Components"
+                    >
+    <!--<Style TargetType="{x:Type local:PanelTunnel}">
+        <Setter Property="Padding" Value="2"></Setter>
+        <Setter Property="Margin" Value="2"></Setter>
+        <Setter Property="Background" Value="{DynamicResource border.base}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource  Window.Border}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Grid Name="container">
+                        <StackPanel Orientation="Horizontal">
+                            
+
+
+                            <ContentPresenter x:Name="content" TextBlock.Foreground="{TemplateBinding Foreground}"  Margin="5,0,0,0" 
+                                              VerticalAlignment="Center"></ContentPresenter>
+
+                            
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Border  BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="1" CornerRadius="4" Width="20" Height="20">
+                                <Grid Background="Transparent" >
+                                    --><!--<Rectangle x:Name="IndeterminateCheck"  Fill="red" Height="3" Width="2" Opacity="0" />--><!--
+                                    <Viewbox Name="check" Opacity="0">
+                                        <Path Margin="2" Stretch="Fill" Width="10" Height="8" Fill="White" Data="M 1145.607177734375,430 C1145.607177734375,430 1141.449951171875,435.0772705078125 1141.449951171875,435.0772705078125 1141.449951171875,435.0772705078125 1139.232177734375,433.0999755859375 1139.232177734375,433.0999755859375 1139.232177734375,433.0999755859375 1138,434.5538330078125 1138,434.5538330078125 1138,434.5538330078125 1141.482177734375,438 1141.482177734375,438 1141.482177734375,438 1141.96875,437.9375 1141.96875,437.9375 1141.96875,437.9375 1147,431.34619140625 1147,431.34619140625 1147,431.34619140625 1145.607177734375,430 1145.607177734375,430 z" ></Path>
+                                    </Viewbox>
+                                    <Border x:Name="disabled" Opacity="0" Background="#8CEEEEEE" CornerRadius="1" Width="14" Height="14" />
+                                </Grid>
+                            </Border>
+                            <Button Style="{DynamicResource Button.base}" Content="Connect"/>
+                            
+                        </StackPanel>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"></VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0"
+                                                     To=".55"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     Storyboard.TargetName="content" />
+                                        <DoubleAnimation Duration="0"
+                                                     To="1"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     Storyboard.TargetName="disabled" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Unchecked" />
+                                <VisualState Name="Checked">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="check" Storyboard.TargetProperty="Opacity" To="1" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+
+
+    </Style>-->
+    
+    
+    <Style x:Key="CheckBox"  TargetType="CheckBox">
+        <Setter Property="Padding" Value="2"></Setter>
+        <Setter Property="Background" Value="{DynamicResource border.base}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource  Window.Border}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Grid Name="container">
+                        <StackPanel Orientation="Horizontal">
+                            <Border  BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="1" CornerRadius="4" Width="20" Height="20">
+                                <Grid  >
+
+
+                                    <Rectangle x:Name="IndeterminateCheck"
+   Fill="red"
+   Height="3"
+   Width="2"
+   Opacity="0" />
+                                    <Viewbox Name="check" Opacity="0">
+                                        <Path Margin="2" Stretch="Fill" Width="10" Height="8" Fill="White" Data="M 1145.607177734375,430 C1145.607177734375,430 1141.449951171875,435.0772705078125 1141.449951171875,435.0772705078125 1141.449951171875,435.0772705078125 1139.232177734375,433.0999755859375 1139.232177734375,433.0999755859375 1139.232177734375,433.0999755859375 1138,434.5538330078125 1138,434.5538330078125 1138,434.5538330078125 1141.482177734375,438 1141.482177734375,438 1141.482177734375,438 1141.96875,437.9375 1141.96875,437.9375 1141.96875,437.9375 1147,431.34619140625 1147,431.34619140625 1147,431.34619140625 1145.607177734375,430 1145.607177734375,430 z" ></Path>
+                                    </Viewbox>
+                                    <Border x:Name="disabled"
+Opacity="0"
+Background="#8CEEEEEE"
+CornerRadius="1"
+Width="14"
+Height="14" />
+                                </Grid>
+                            </Border>
+                            
+
+                            <ContentPresenter x:Name="content" TextBlock.Foreground="{TemplateBinding Foreground}"  Margin="5,0,0,0" VerticalAlignment="{TemplateBinding VerticalAlignment}"></ContentPresenter>
+                        </StackPanel>
+
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"></VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0"
+                                                     To=".55"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     Storyboard.TargetName="content" />
+                                        <DoubleAnimation Duration="0"
+                                                     To="1"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     Storyboard.TargetName="disabled" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Unchecked" />
+                                <VisualState Name="Checked">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="check" Storyboard.TargetProperty="Opacity" To="1" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
