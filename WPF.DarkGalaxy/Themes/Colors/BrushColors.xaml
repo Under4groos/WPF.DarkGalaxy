@@ -27,6 +27,10 @@
 
     <SolidColorBrush x:Key="label.color.base" Color="White" Opacity="1"></SolidColorBrush>
     <SolidColorBrush x:Key="label.color.Enabled" Color="#4D4D4D" Opacity="1"></SolidColorBrush>
- 
 
+
+    <SolidColorBrush x:Key="Path.color.base" Color="White" Opacity="1"></SolidColorBrush>
+    
+    
+    
 </ResourceDictionary>

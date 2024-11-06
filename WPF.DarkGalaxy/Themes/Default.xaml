@@ -19,6 +19,15 @@
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/TextBox.xaml"/>
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/CheckBox.xaml"/>
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/ListBox.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/SvgPath.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/PART_Button.xaml"/>
+        
+        
+        
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Icons/SvgList.xaml"/>
+      
+        
+        
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/DarkWindow.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
