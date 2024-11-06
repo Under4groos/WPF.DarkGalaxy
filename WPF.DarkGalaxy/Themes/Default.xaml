@@ -3,6 +3,8 @@
                     xmlns:ll ="/WPF.DarkGalaxy;component/Themes/Default"
                     >
     <ResourceDictionary.MergedDictionaries>
+       
+
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Colors\BrushColors.xaml"/>
         
          
@@ -17,7 +19,7 @@
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/TextBox.xaml"/>
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/CheckBox.xaml"/>
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/ListBox.xaml"/>
-      
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/DarkWindow.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

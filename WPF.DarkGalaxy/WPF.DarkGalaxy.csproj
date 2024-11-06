@@ -5,13 +5,13 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
+     
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\" />
-    <Folder Include="Themes\Default\" />
+    <Folder Include="Controls\Новая папка\" />
     <Folder Include="Themes\Colors\" />
     <Folder Include="Themes\Icons\" />
   </ItemGroup>
-
+   
 </Project>

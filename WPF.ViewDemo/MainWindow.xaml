@@ -1,4 +1,5 @@
-﻿<Window x:Class="WPF.ViewDemo.MainWindow"
+﻿<wpf:DarkWindow  xmlns:controls="clr-namespace:WPF.DarkGalaxy.Controls;assembly=WPF.DarkGalaxy" 
+                      x:Class="WPF.ViewDemo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,12 +7,12 @@
         xmlns:local="clr-namespace:WPF.ViewDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen"
         Topmost="True"
-        Background="{DynamicResource Window.Background}"
+        xmlns:wpf="http://github.com/Under4groos/WPF.DarkGalaxy"
+        Style="{DynamicResource win}" Icon="C:\Users\Owner\Documents\ShareX\Screenshots\2024-11\chrome_RrJES7JUeV.png"
+                  
         >
-
-    <Grid>
+    <Grid >
         <Grid.ContextMenu>
             <ContextMenu>
                 <MenuItem Header="-one-"/>
@@ -98,12 +99,12 @@
                         </TreeView>
                     </TabItem>
                 </TabControl>
-                 
-                
-              
-                 
-                
- 
+
+
+
+
+
+
             </StackPanel>
 
 
@@ -112,4 +113,5 @@
         </ScrollViewer>
 
     </Grid>
-</Window>
+
+</wpf:DarkWindow>
