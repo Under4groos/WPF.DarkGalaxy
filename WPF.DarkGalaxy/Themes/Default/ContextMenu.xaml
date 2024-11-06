@@ -55,7 +55,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
                     <Grid Background="Transparent">
-                        <Border Margin="0,0,5,5" Background="{StaticResource MidBrsh}" BorderThickness="0">
+                        <Border Margin="0,0,5,5" Background="{StaticResource MidBrsh}" CornerRadius="4" BorderThickness="0">
                             <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" Margin="2"/>
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="3" ShadowDepth="3" Color="Black" Opacity="0.5"/>

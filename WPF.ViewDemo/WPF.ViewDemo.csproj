@@ -9,7 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="chrome_5WlOqtQtw8.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WPF.DarkGalaxy\WPF.DarkGalaxy.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\chrome_5WlOqtQtw8.png" />
   </ItemGroup>
 
 </Project>

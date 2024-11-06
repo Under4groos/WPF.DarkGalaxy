@@ -6,31 +6,104 @@
         xmlns:local="clr-namespace:WPF.ViewDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
         Background="{DynamicResource Window.Background}"
         >
+
     <Grid>
-        <ScrollViewer>
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="-one-"/>
+                <MenuItem Header="Pico!"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <ScrollViewer Margin="10">
             <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="button 1" Style="{DynamicResource Button.base.margin.2}"/>
-                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="button 2" Style="{DynamicResource Button.base.margin.2}"/>
-                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="button 3" Style="{DynamicResource Button.base.margin.2}"/>
-                </StackPanel>
-                <Border Style="{DynamicResource border.style.1}" Height="5" VerticalAlignment="Stretch"/>
+                <TabControl>
+                    <TabItem Header="Buttons">
+                        <StackPanel  Margin="15,0,0,0">
 
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <CheckBox Style="{DynamicResource CheckBox}" Content="CheckBox 1"/>
-                        <CheckBox Style="{DynamicResource CheckBox}" Content="CheckBox 1"/>
-                        <CheckBox Style="{DynamicResource CheckBox}" Content="CheckBox 1"/>
-                        <CheckBox Style="{DynamicResource CheckBox}" Content="CheckBox 1"/>
-                    </StackPanel>
-                </StackPanel>
+                            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="button 1" Style="{DynamicResource Button.base.margin.2}"/>
+                            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="button 2" Style="{DynamicResource Button.base.margin.2}"/>
+                            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="button 3" Style="{DynamicResource Button.base.margin.2}"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="CheckBox">
+                        <StackPanel >
+                            <StackPanel  Margin="15,0,0,0">
+                                <CheckBox Style="{DynamicResource CheckBox}" Content="CheckBox 1"/>
+                                <CheckBox Style="{DynamicResource CheckBox}" Content="CheckBox 1"/>
+                                <CheckBox Style="{DynamicResource CheckBox}" Content="CheckBox 1"/>
+                                <CheckBox Style="{DynamicResource CheckBox}" Content="CheckBox 1"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Label">
+                        <StackPanel Margin="15,0,0,0">
+                            <StackPanel >
+                                <Label Content="Label 1"></Label>
+                                <Label Content="Label 2"></Label>
+                                <Label Content="Content label"></Label>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="ListBox and ListBoxItem">
+                        <ListBox Margin="15,0,0,0" x:Name="listBox">
+                            <ListBoxItem>
+                                <Label Content="-one-"/>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <Label Content=" Q! "/>
+                            </ListBoxItem>
+                            <ListBoxItem>
 
+                                <StackPanel Orientation="Horizontal">
+                                    <Image HorizontalAlignment="Left" Source="/Resource/chrome_5WlOqtQtw8.png" Width="250" Height="250" Stretch="Fill" >
+                                        <Image.Clip>
+                                            <EllipseGeometry RadiusX="125" RadiusY="125" Center="125,125"/>
+                                        </Image.Clip>
+                                    </Image>
+                                    <Image HorizontalAlignment="Left" Source="/Resource/chrome_5WlOqtQtw8.png" Width="255" Height="255" Stretch="Fill" >
+                                        <Image.Clip>
+                                            <RectangleGeometry Rect="50,50,155,155"/>
+                                        </Image.Clip>
+                                    </Image>
+                                </StackPanel>
+                            </ListBoxItem>
+                        </ListBox>
+                    </TabItem>
+                    <TabItem Header="TextBox">
+                        <StackPanel Margin="15,0,0,0">
+                            <StackPanel >
+                                <TextBox Text="asd"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="TextBox">
+                        <TreeView>
+                            <TreeViewItem Header="t-1">
+                                <TreeViewItem Header="t-1.t-2">
+                                    <TreeViewItem Header="t-1.t-2.t-3"/>
+                                </TreeViewItem>
+                            </TreeViewItem>
+                            <TreeViewItem Header="t-1">
+                                <TreeViewItem Header="1"/>
+                                <TreeViewItem Header="1"/>
+                                <TreeViewItem Header="1"/>
+                                <TreeViewItem Header="1"/>
+                                <TreeViewItem Header="1"/>
+                            </TreeViewItem>
+
+                        </TreeView>
+                    </TabItem>
+                </TabControl>
+                 
                 
+              
+                 
                 
-                
-                
+ 
             </StackPanel>
 
 

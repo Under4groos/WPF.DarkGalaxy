@@ -26,16 +26,7 @@
                         Margin="{TemplateBinding Margin}"
                         SnapsToDevicePixels="True">
                         <Grid>
-                            <StackPanel>
-                                <ContentPresenter x:Name="_content" VerticalAlignment="Center"/>
-                                <Label x:Name="_setver_ip" />
-
-                            </StackPanel>
-
-                            <StackPanel VerticalAlignment="Stretch" Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Label x:Name="_ping_label" Content="ping: 0"/> 
-                                <Button Visibility="Collapsed" x:Name="_connect_button" Style="{DynamicResource Button.base}" Content="Select"/>
-                            </StackPanel>
+                            <ContentPresenter x:Name="_content" VerticalAlignment="Center"/>
                         </Grid>
                         
                     </Border>
