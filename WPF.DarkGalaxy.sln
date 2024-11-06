@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.DarkGalaxy", "WPF.DarkGalaxy\WPF.DarkGalaxy.csproj", "{219AF853-B07D-4D70-B47B-F2A9E7BE76AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.ViewDemo", "WPF.ViewDemo\WPF.ViewDemo.csproj", "{E1D1B033-759F-4680-ADB5-E9FDCEBFA114}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{219AF853-B07D-4D70-B47B-F2A9E7BE76AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{219AF853-B07D-4D70-B47B-F2A9E7BE76AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{219AF853-B07D-4D70-B47B-F2A9E7BE76AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1D1B033-759F-4680-ADB5-E9FDCEBFA114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1D1B033-759F-4680-ADB5-E9FDCEBFA114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1D1B033-759F-4680-ADB5-E9FDCEBFA114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1D1B033-759F-4680-ADB5-E9FDCEBFA114}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

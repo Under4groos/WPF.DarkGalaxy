@@ -1,4 +1,23 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ll ="/WPF.DarkGalaxy;component/Themes/Default"
+                    >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Colors\BrushColors.xaml"/>
+        
+         
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/Border.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/ToggleButton.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/ScrollViewer.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/Label.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/ContextMenu.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/Button.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/TreeView.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/TabItem.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/TextBox.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/CheckBox.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/ListBox.xaml"/>
+      
+
+    </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
