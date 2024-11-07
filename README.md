@@ -27,7 +27,7 @@ Window:
 Include library in project.
 
 App.xaml
-```
+```html
 <Application.Resources>
     <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
@@ -37,7 +37,7 @@ App.xaml
 </Application.Resources>
 ```
 or 
-```
+```html
 <Application.Resources>
     <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
@@ -60,13 +60,12 @@ or
         </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 </Application.Resources>
-
 ```
 
 
 # Using
 Append in file 
-```
+```html
 xmlns:controls="clr-namespace:WPF.DarkGalaxy.Controls;assembly=WPF.DarkGalaxy"
 xmlns:wpf="http://github.com/Under4groos/WPF.DarkGalaxy"
 ```
