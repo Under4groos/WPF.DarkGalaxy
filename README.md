@@ -74,7 +74,8 @@ xmlns:wpf="http://github.com/Under4groos/WPF.DarkGalaxy"
 
 
 # Screenshots
-
+![enter image description here](https://github.com/Under4groos/WPF.DarkGalaxy/blob/master/screenshot/O333EzA4wh.png?raw=true)
+![enter image description here](https://github.com/Under4groos/WPF.DarkGalaxy/blob/master/screenshot/odJxmOZR2H.png?raw=true)
 ![enter image description here](https://github.com/Under4groos/WPF.DarkGalaxy/blob/master/screenshot/7EVnyTZGkS.png?raw=true)
 ![enter image description here](https://github.com/Under4groos/WPF.DarkGalaxy/blob/master/screenshot/Ux1WoyIemu.png?raw=true)
-![enter image description here](https://github.com/Under4groos/WPF.DarkGalaxy/blob/master/screenshot/odJxmOZR2H.png?raw=true)
+
