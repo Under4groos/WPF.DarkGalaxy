@@ -8,8 +8,12 @@
         <Setter Property="Background" Value="{DynamicResource Window.Background}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Window.Border}"/>
         <Setter Property="WindowStyle" Value="None"/>
+        
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="Padding" Value="0"/>
+        <Setter Property="Width" Value="1200"/>
+        <Setter Property="Height" Value="720"/>
+        
         <Setter Property="shell:WindowChrome.WindowChrome">
             <Setter.Value>
                 <shell:WindowChrome CaptionHeight="30" CornerRadius="8"/>
@@ -21,13 +25,12 @@
                     <Border CornerRadius="8" Background="{TemplateBinding Background}" BorderThickness="1" 
         BorderBrush="{TemplateBinding BorderBrush}">
                         <Border    CornerRadius="8" >
-
+                            <Border.Background>
+                                <ImageBrush Opacity="0.1"  x:Name="PART_BackgroundImage"/>
+                            </Border.Background>
                             <Grid>
-                                <Image Width="100" Height="100" Source="C:\Users\Owner\Documents\ShareX\Screenshots\2024-11\0h7Mai9WAq.png" x:Name="PART_BackgroundImage">
-                                    <Image.OpacityMask>
-                                        <VisualBrush Visual="{Binding ElementName=PART_BackgroundImage}"/>
-                                    </Image.OpacityMask>
-                                </Image>
+                                
+                               
                                 <Grid x:Name="_base_">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>

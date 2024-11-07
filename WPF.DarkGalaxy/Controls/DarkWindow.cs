@@ -8,6 +8,7 @@ using System.Windows;
 using System.Collections;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace WPF.DarkGalaxy.Controls
 {
@@ -28,11 +29,15 @@ namespace WPF.DarkGalaxy.Controls
         private Button btnMin;
         private Button btnRestore;
         private Button btnClose;
-        private Image imgBackgroundImage;
+        private ImageBrush imgBackgroundImage;
+        private Stretch imageStretch;
+
+
 
         static DarkWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(DarkWindow), new FrameworkPropertyMetadata(typeof(DarkWindow)));
+           
         }
 
       
@@ -40,28 +45,56 @@ namespace WPF.DarkGalaxy.Controls
         public static readonly DependencyProperty ItemsSourceProperty =
            DependencyProperty.Register(
                nameof(BackgroundImage),
-               typeof(ImageSource),
+               typeof(string),
                typeof(DarkWindow),
                new FrameworkPropertyMetadata(OnItemsSourcePropertyChanged));
 
-        private static void OnItemsSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateSource();       
-        
+        public static readonly DependencyProperty StretchProperty =
+           DependencyProperty.Register(
+               nameof(imageStretch),
+               typeof(Stretch),
+               typeof(DarkWindow),
+               new FrameworkPropertyMetadata(OnStretchImagePropertyChanged));
+        private static void OnItemsSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateSource();
+        private static void OnStretchImagePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateStretchImageSource();
 
-        public ImageSource BackgroundImage
+        public string BackgroundImage
         {
-            get => (ImageSource)GetValue(ItemsSourceProperty);
+            get => (string)GetValue(ItemsSourceProperty);
             set => SetValue(ItemsSourceProperty, value);
         }
-
+        public Stretch StretchImage
+        {
+            get => (Stretch)GetValue(StretchProperty);
+            set => SetValue(StretchProperty, value);
+        }
         public void UpdateSource()
         {
-            if(this.imgBackgroundImage != null)
+            if(this.imgBackgroundImage != null && File.Exists(BackgroundImage))
             {
-
-                 
+                var bi = new BitmapImage();
+                bi.BeginInit();
+                bi.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+                bi.CacheOption = BitmapCacheOption.OnLoad;
+                bi.UriSource = new Uri(BackgroundImage, UriKind.RelativeOrAbsolute);
+                bi.EndInit();
+                this.imgBackgroundImage.ImageSource = bi;
+                this.imgBackgroundImage.Stretch = StretchImage;
             }
         }
+        public void UpdateStretchImageSource()
+        {
+            if (this.imgBackgroundImage != null)
+            {
+                this.imgBackgroundImage.Stretch = StretchImage;
 
+            }
+        }
+        public DarkWindow()
+        {
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        }
+        
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -70,9 +103,10 @@ namespace WPF.DarkGalaxy.Controls
             this.btnMin = this.GetTemplateChild(PART_MinButton) as Button;
             this.btnRestore = this.GetTemplateChild(PART_RestoreButton) as Button;
             this.btnClose = this.GetTemplateChild(PART_CloseButton) as Button;
-            this.imgBackgroundImage = this.GetTemplateChild(PART_BackgroundImage) as Image;
-
+            this.imgBackgroundImage = this.GetTemplateChild(PART_BackgroundImage) as ImageBrush;
             
+
+
 
 
             this.UpdateSource();
