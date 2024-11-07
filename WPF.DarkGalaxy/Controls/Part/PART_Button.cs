@@ -9,5 +9,6 @@ namespace WPF.DarkGalaxy.Controls.Part
 {
     public class PART_Button : Button
     {
+
     }
 }

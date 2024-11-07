@@ -16,7 +16,7 @@ namespace WPF.DarkGalaxy.Controls
     [TemplatePart(Name = PART_MinButton, Type = typeof(Button))]
     [TemplatePart(Name = PART_RestoreButton, Type = typeof(Button))]
     [TemplatePart(Name = PART_CloseButton, Type = typeof(Button))]
-    
+    [TemplatePart(Name = PART_LeftItems, Type = typeof(StackPanel))]
     public class DarkWindow : System.Windows.Window
     {
         private const string PART_MaxButton = "PART_MaxButton";
@@ -24,14 +24,17 @@ namespace WPF.DarkGalaxy.Controls
         private const string PART_RestoreButton = "PART_RestoreButton";
         private const string PART_CloseButton = "PART_CloseButton";
         private const string PART_BackgroundImage = "PART_BackgroundImage";
-
+        private const string PART_LeftItems = "PART_LeftItems";
+        private const string PART_RightItems = "PART_RightItems";
+        
         private Button btnMax;
         private Button btnMin;
         private Button btnRestore;
         private Button btnClose;
         private ImageBrush imgBackgroundImage;
         private Stretch imageStretch;
-
+        public StackPanel LItems;
+        public StackPanel RItems;
 
 
         static DarkWindow()
@@ -104,8 +107,9 @@ namespace WPF.DarkGalaxy.Controls
             this.btnRestore = this.GetTemplateChild(PART_RestoreButton) as Button;
             this.btnClose = this.GetTemplateChild(PART_CloseButton) as Button;
             this.imgBackgroundImage = this.GetTemplateChild(PART_BackgroundImage) as ImageBrush;
+            this.LItems = this.GetTemplateChild(PART_LeftItems) as StackPanel;
+            this.RItems = this.GetTemplateChild(PART_RightItems) as StackPanel;
             
-
 
 
 

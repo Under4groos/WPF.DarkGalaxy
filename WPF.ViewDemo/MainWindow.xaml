@@ -11,7 +11,7 @@
         xmlns:wpf="http://github.com/Under4groos/WPF.DarkGalaxy"
         Style="{DynamicResource win}" 
         Icon="C:\Users\Owner\Documents\ShareX\Screenshots\2024-11\chrome_RrJES7JUeV.png"
-        BackgroundImage="C:\Users\Owner\Downloads\79030f4c2b68ba81f1869cffb70d8ba4.jpg"
+        BackgroundImage="C:\Users\Owner\source\repos\WPF.DarkGalaxy\WPF.ViewDemo\Resource\chrome_xDFaq2H1jo.png"
         StretchImage="Fill"
                  
         >
