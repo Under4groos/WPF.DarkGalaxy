@@ -3,11 +3,7 @@
                     xmlns:ll ="/WPF.DarkGalaxy;component/Themes/Default"
                     >
     <ResourceDictionary.MergedDictionaries>
-       
-
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Colors\BrushColors.xaml"/>
-        
-         
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/Border.xaml"/>
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/ToggleButton.xaml"/>
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/ScrollViewer.xaml"/>
@@ -21,14 +17,7 @@
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/ListBox.xaml"/>
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/SvgPath.xaml"/>
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/PART_Button.xaml"/>
-        
-        
-        
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Icons/SvgList.xaml"/>
-      
-        
-        
         <ResourceDictionary Source="/WPF.DarkGalaxy;component/Themes/Default/DarkWindow.xaml"/>
-
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
