@@ -1,5 +1,8 @@
 # WPF.DarkGalaxy
 
+
+
+
 WPF Custom Window and Controls.
 
 Controls:
@@ -22,7 +25,14 @@ Window:
 <ul>
     <li>DarkWindow</li>  
 </ul>
+
 # Install
+<ul>
+    <li>GitHub Clone</li>
+    <li>Import project in solution</li>
+    <li>include library in project</li>
+    <li>include library in project</li>
+</ul>
 
 ![enter image description here](https://github.com/Under4groos/WPF.DarkGalaxy/blob/master/screenshot/7EVnyTZGkS.png?raw=true)
 ![enter image description here](https://github.com/Under4groos/WPF.DarkGalaxy/blob/master/screenshot/Ux1WoyIemu.png?raw=true)
