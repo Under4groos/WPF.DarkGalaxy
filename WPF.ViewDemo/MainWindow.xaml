@@ -9,8 +9,9 @@
         Title="MainWindow" Height="450" Width="800"
         Topmost="True"
         xmlns:wpf="http://github.com/Under4groos/WPF.DarkGalaxy"
-        Style="{DynamicResource win}" Icon="C:\Users\Owner\Documents\ShareX\Screenshots\2024-11\chrome_RrJES7JUeV.png"
-                  
+        Style="{DynamicResource win}" 
+        Icon="C:\Users\Owner\Documents\ShareX\Screenshots\2024-11\chrome_RrJES7JUeV.png"
+        BackgroundImage="C:\Users\Owner\Documents\ShareX\Screenshots\2024-11\chrome_RrJES7JUeV.png"
         >
     <Grid >
         <Grid.ContextMenu>
