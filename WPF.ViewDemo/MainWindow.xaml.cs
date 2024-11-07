@@ -26,9 +26,15 @@ namespace WPF.ViewDemo
         ContextMenu cm = new ContextMenu();
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            this.AccentState = DarkGalaxy.Helper.Enums.AccentState.ACCENT_ENABLE_BLURBEHIND;
+            this.IsBlured = true;
             cm.Items.Add(new MenuItem()
             {
                 Header = "Open"
+            });
+            cm.Items.Add(new MenuItem()
+            {
+                Header = "Show"
             });
             foreach (var item in new string[] { "File" , "Edit" , "Selection" })
             {

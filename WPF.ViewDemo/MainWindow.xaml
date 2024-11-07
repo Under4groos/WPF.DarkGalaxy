@@ -13,7 +13,8 @@
         Icon="C:\Users\Owner\Documents\ShareX\Screenshots\2024-11\chrome_RrJES7JUeV.png"
         BackgroundImage="C:\Users\Owner\source\repos\WPF.DarkGalaxy\WPF.ViewDemo\Resource\chrome_xDFaq2H1jo.png"
         StretchImage="Fill"
-                 
+        OpacityBackground="0.2"     
+        BackgroundImageBlured="5"
         >
     <Grid >
         <Grid.ContextMenu>

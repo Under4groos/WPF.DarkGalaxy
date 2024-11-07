@@ -28,16 +28,16 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
-                    <Grid Name="Root" Height="27" Background="{StaticResource MidBrsh}">
+                    <Border BorderThickness="1" BorderBrush="{DynamicResource border.brush_border}" Margin="0" CornerRadius="4" Name="Root" Padding="2,6,2,6" Background="{DynamicResource ContextMenu.base}">
                         <ContentPresenter Name="HeaderHost" Margin="10,0,0,0" ContentSource="Header" RecognizesAccessKey="True" HorizontalAlignment="Left" VerticalAlignment="Center"
                       TextOptions.TextRenderingMode="ClearType" TextBlock.FontSize="12" TextBlock.Foreground="{TemplateBinding Foreground}" TextOptions.TextFormattingMode="Display"/>
-                    </Grid>
+                    </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Root" Property="Background" Value="#505050"/>
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource ContextMenu.hover}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="Root" Property="Background" Value="#808080"/>
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource ContextMenu.base }"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -55,7 +55,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
                     <Grid Background="Transparent">
-                        <Border Margin="0,0,5,5" Background="{StaticResource MidBrsh}" CornerRadius="4" BorderThickness="0">
+                        <Border Margin="0,0,5,5" Background="Transparent" CornerRadius="4" BorderThickness="0">
                             <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" Margin="2"/>
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="3" ShadowDepth="3" Color="Black" Opacity="0.5"/>

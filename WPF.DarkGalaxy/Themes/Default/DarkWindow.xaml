@@ -8,12 +8,12 @@
         <Setter Property="Background" Value="{DynamicResource Window.Background}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Window.Border}"/>
         <Setter Property="WindowStyle" Value="None"/>
-        
+
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Width" Value="1200"/>
         <Setter Property="Height" Value="720"/>
-        
+
         <Setter Property="shell:WindowChrome.WindowChrome">
             <Setter.Value>
                 <shell:WindowChrome CaptionHeight="30" CornerRadius="8"/>
@@ -24,79 +24,86 @@
                 <ControlTemplate TargetType="Window">
                     <Border CornerRadius="8" Background="{TemplateBinding Background}" BorderThickness="1" 
         BorderBrush="{TemplateBinding BorderBrush}">
-                        <Border    CornerRadius="8" >
-                            <Border.Background>
-                                <ImageBrush Opacity="0.1"  x:Name="PART_BackgroundImage"/>
-                            </Border.Background>
-                            <Grid>
-                                
-                               
-                                <Grid x:Name="_base_">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <Border Height="35" Margin="0,0,2,0" Name="PART_Title">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <StackPanel  Orientation="Horizontal">
-                                                <StackPanel  Margin="5,0,0,0" VerticalAlignment="Center"  Orientation="Horizontal" >
 
-                                                    <Grid Width="25" Height="25">
-                                                        <Grid.Clip>
-                                                            <RectangleGeometry RadiusX="4" RadiusY="4" Rect="0,0,25,25"/>
-                                                        </Grid.Clip>
-                                                        <Image Source="{TemplateBinding Icon}" Stretch="UniformToFill"/>
-                                                    </Grid>
-                                                    <ContentControl Panel.ZIndex="-10" Margin="10,0,10,0" VerticalAlignment="Center" Foreground="White" TextBlock.FontSize="12" Content="{TemplateBinding Title}"/>
 
-                                                </StackPanel>
-                                                <StackPanel  Margin="10,4,0,4" x:Name="PART_LeftItems" Orientation="Horizontal" HorizontalAlignment="Left">
-                                                    
-                                                     
-                                                </StackPanel>
+                        <Grid>
+                            <Border Panel.ZIndex="-10" CornerRadius="8">
+                                <Border.Background>
+                                    <ImageBrush Opacity="0.4"  x:Name="PART_BackgroundImage"/>
+
+
+                                </Border.Background>
+                                <Border.Effect>
+                                    <BlurEffect x:Name="PART_BackgroundBlur"/>
+                                </Border.Effect>
+                            </Border>
+
+                            <Grid x:Name="_base_">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Border Height="35" Margin="0,0,2,0" Name="PART_Title">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel  Orientation="Horizontal">
+                                            <StackPanel  Margin="5,0,0,0" VerticalAlignment="Center"  Orientation="Horizontal" >
+
+                                                <Grid Width="25" Height="25">
+                                                    <Grid.Clip>
+                                                        <RectangleGeometry RadiusX="4" RadiusY="4" Rect="0,0,25,25"/>
+                                                    </Grid.Clip>
+                                                    <Image Source="{TemplateBinding Icon}" Stretch="UniformToFill"/>
+                                                </Grid>
+                                                <ContentControl Panel.ZIndex="-10" Margin="10,0,10,0" VerticalAlignment="Center" Foreground="White" TextBlock.FontSize="12" Content="{TemplateBinding Title}"/>
+
                                             </StackPanel>
-                                           
-                                            
-                                            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center">
-                                                <StackPanel Margin="10,4,5,4" x:Name="PART_RightItems" Orientation="Horizontal">
-
-                                                </StackPanel>
-                                                <part_controls:PART_Button x:Name="PART_MinButton"  Style="{DynamicResource PART_Button.base}">
-                                                    <Path Margin="5" Height="2" Stretch="Uniform" Fill="{DynamicResource Path.color.base}" Data="{DynamicResource svgico.hide}"/>
-                                                </part_controls:PART_Button>
+                                            <StackPanel  Margin="10,4,0,4" x:Name="PART_LeftItems" Orientation="Horizontal" HorizontalAlignment="Left">
 
 
-
-
-
-                                                <part_controls:PART_Button x:Name="PART_RestoreButton" Style="{DynamicResource PART_Button.base}">
-                                                    <Path Margin="5" Height="11" Stretch="Uniform" Stroke="{DynamicResource Path.color.base}" Data="{DynamicResource svgico.min_max}"/>
-                                                </part_controls:PART_Button>
-
-
-                                                <part_controls:PART_Button x:Name="PART_MaxButton" Style="{DynamicResource PART_Button.base}">
-                                                    <Path Margin="5" Height="11" Stretch="Uniform" Stroke="{DynamicResource Path.color.base}" Data="{DynamicResource svgico.min_max}"/>
-                                                </part_controls:PART_Button>
-
-
-                                                <part_controls:PART_Button x:Name="PART_CloseButton" Style="{DynamicResource PART_Button.base}">
-                                                    <Path Margin="5" Height="11" Stretch="Uniform" Fill="{DynamicResource Path.color.base}" Data="{DynamicResource svgico.close}"/>
-                                                </part_controls:PART_Button>
-
-
-                                                
                                             </StackPanel>
-                                        </Grid>
-                                    </Border>
+                                        </StackPanel>
 
-                                    <ContentPresenter  Margin="{TemplateBinding Padding}" Grid.Row="1"></ContentPresenter>
-                                </Grid>
+
+                                        <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center">
+                                            <StackPanel Margin="10,4,5,4" x:Name="PART_RightItems" Orientation="Horizontal">
+
+                                            </StackPanel>
+                                            <part_controls:PART_Button x:Name="PART_MinButton"  Style="{DynamicResource PART_Button.base}">
+                                                <Path Margin="5" Height="2" Stretch="Uniform" Fill="{DynamicResource Path.color.base}" Data="{DynamicResource svgico.hide}"/>
+                                            </part_controls:PART_Button>
+
+
+
+
+
+                                            <part_controls:PART_Button x:Name="PART_RestoreButton" Style="{DynamicResource PART_Button.base}">
+                                                <Path Margin="5" Height="11" Stretch="Uniform" Stroke="{DynamicResource Path.color.base}" Data="{DynamicResource svgico.min_max}"/>
+                                            </part_controls:PART_Button>
+
+
+                                            <part_controls:PART_Button x:Name="PART_MaxButton" Style="{DynamicResource PART_Button.base}">
+                                                <Path Margin="5" Height="11" Stretch="Uniform" Stroke="{DynamicResource Path.color.base}" Data="{DynamicResource svgico.min_max}"/>
+                                            </part_controls:PART_Button>
+
+
+                                            <part_controls:PART_Button x:Name="PART_CloseButton" Style="{DynamicResource PART_Button.base}">
+                                                <Path Margin="5" Height="11" Stretch="Uniform" Fill="{DynamicResource Path.color.base}" Data="{DynamicResource svgico.close}"/>
+                                            </part_controls:PART_Button>
+
+
+
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+
+                                <ContentPresenter  Margin="{TemplateBinding Padding}" Grid.Row="1"></ContentPresenter>
                             </Grid>
-                        </Border>
+                        </Grid>
+
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="WindowState" Value="Maximized">
