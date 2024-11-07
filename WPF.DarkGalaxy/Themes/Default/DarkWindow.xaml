@@ -22,12 +22,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Window">
-                    <Border CornerRadius="8" Background="{TemplateBinding Background}" BorderThickness="1" 
+                    <Border  BorderThickness="1" CornerRadius="8"
         BorderBrush="{TemplateBinding BorderBrush}">
 
 
                         <Grid>
-                            <Border Panel.ZIndex="-10" CornerRadius="8">
+                            <Border x:Name="PART_WindowBackground" CornerRadius="8" Background="{TemplateBinding Background}"/>
+                            <Border Visibility="Collapsed" Panel.ZIndex="-10" CornerRadius="8" >
                                 <Border.Background>
                                     <ImageBrush Opacity="0.4"  x:Name="PART_BackgroundImage"/>
 

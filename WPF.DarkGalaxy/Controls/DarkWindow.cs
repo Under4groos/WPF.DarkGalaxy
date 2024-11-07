@@ -30,11 +30,15 @@ namespace WPF.DarkGalaxy.Controls
         private const string PART_LeftItems = "PART_LeftItems";
         private const string PART_RightItems = "PART_RightItems";
         private const string PART_BackgroundBlur = "PART_BackgroundBlur";
+        private const string PART_WindowBackground = "PART_WindowBackground";
+
+
         private Button btnMax;
         private Button btnMin;
         private Button btnRestore;
         private Button btnClose;
-        private ImageBrush imgBackgroundImage; 
+        private ImageBrush imgBackgroundImage;
+        private Border _PART_WindowBackground;
         public StackPanel LItems;
         public StackPanel RItems;
         private bool _IsBlured
@@ -47,7 +51,7 @@ namespace WPF.DarkGalaxy.Controls
 
         static DarkWindow()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(DarkWindow), new FrameworkPropertyMetadata(typeof(DarkWindow)));    
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(DarkWindow), new FrameworkPropertyMetadata(typeof(DarkWindow)));
         }
 
         #region Binding
@@ -57,6 +61,8 @@ namespace WPF.DarkGalaxy.Controls
                typeof(double),
                typeof(DarkWindow),
                new FrameworkPropertyMetadata(OnOpacityBackgroundPropertyChanged));
+
+
         public static readonly DependencyProperty BackgroundImageProperty =
            DependencyProperty.Register(
                nameof(BackgroundImage),
@@ -77,13 +83,13 @@ namespace WPF.DarkGalaxy.Controls
               typeof(DarkWindow),
               new FrameworkPropertyMetadata(OnBackgroundImageBluredPropertyChanged));
 
-
+       
         private static void OnItemsSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateSource();
         private static void OnStretchImagePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateStretchImageSource();
 
         private static void OnOpacityBackgroundPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateOpacityBackground();
 
-        private static void OnBackgroundImageBluredPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateOpacityBackground();
+        private static void OnBackgroundImageBluredPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateBackgroundImage();
 
         public double BackgroundImageBlured
         {
@@ -104,7 +110,7 @@ namespace WPF.DarkGalaxy.Controls
         {
             get => (Stretch)GetValue(StretchProperty);
             set => SetValue(StretchProperty, value);
-        } 
+        }
         #endregion
 
 
@@ -114,15 +120,24 @@ namespace WPF.DarkGalaxy.Controls
         {
             get
             {
-                if(_HANDLE == IntPtr.Zero)
+                if (_HANDLE == IntPtr.Zero)
                     _HANDLE = new WindowInteropHelper(this).Handle;
                 return _HANDLE;
             }
         }
+        private Helper.Enums.AccentState _AccentState = Helper.Enums.AccentState.ACCENT_ENABLE_BLURBEHIND;
         public Helper.Enums.AccentState AccentState
         {
-            get; set;
-        } = Helper.Enums.AccentState.ACCENT_ENABLE_BLURBEHIND;
+            get
+            {
+                return _AccentState;
+            }
+            set
+            {
+                _AccentState = value;
+                IsBlured = IsBlured;
+            }
+        }
         public bool IsBlured
         {
             get
@@ -131,9 +146,7 @@ namespace WPF.DarkGalaxy.Controls
             }
             set
             {
-                if (value == _IsBlured)
-                    return;
-
+               
                 WindowBlured.Blur(
                     AccentState,
                     this.HANDLE,
@@ -149,7 +162,7 @@ namespace WPF.DarkGalaxy.Controls
         {
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
-        
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -161,7 +174,7 @@ namespace WPF.DarkGalaxy.Controls
             this.LItems = this.GetTemplateChild(PART_LeftItems) as StackPanel;
             this.RItems = this.GetTemplateChild(PART_RightItems) as StackPanel;
             this.blurEffect = this.GetTemplateChild(PART_BackgroundBlur) as BlurEffect;
-
+            this._PART_WindowBackground = this.GetTemplateChild(PART_WindowBackground) as Border;
 
             this.UpdateSource();
             if (this.btnMax != null)
@@ -179,7 +192,7 @@ namespace WPF.DarkGalaxy.Controls
             if (this.btnClose != null)
             {
                 this.btnClose.Click += btnClose_Click;
-            } 
+            }
         }
         void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -199,14 +212,19 @@ namespace WPF.DarkGalaxy.Controls
         }
         void UpdateOpacityBackground()
         {
-            if(this.imgBackgroundImage != null && this.blurEffect != null)
+            if (this.imgBackgroundImage != null)
             {
-                this.imgBackgroundImage.Opacity = this.OpacityBackground;
-                this.blurEffect.Radius = this.BackgroundImageBlured;
-            }
-               
-        }
+                this._PART_WindowBackground.Opacity = this.OpacityBackground;
 
+            }
+
+        }
+        void UpdateBackgroundImage()
+        {
+            if (this.blurEffect != null)
+                this.blurEffect.Radius = this.BackgroundImageBlured;
+
+        }
         void UpdateSource()
         {
             if (this.imgBackgroundImage != null && File.Exists(BackgroundImage))
