@@ -12,6 +12,7 @@ using System.IO;
 using System.Windows.Interop;
 using WPF.DarkGalaxy.Helper;
 using System.Windows.Media.Effects;
+using WPF.DarkGalaxy.Helper.Structures;
 
 namespace WPF.DarkGalaxy.Controls
 {
@@ -83,13 +84,33 @@ namespace WPF.DarkGalaxy.Controls
               typeof(DarkWindow),
               new FrameworkPropertyMetadata(OnBackgroundImageBluredPropertyChanged));
 
-       
+        public static readonly DependencyProperty ScreenMarginProperty =
+          DependencyProperty.Register(
+              nameof(ScreenMargin),
+              typeof(Size),
+              typeof(DarkWindow),
+              new FrameworkPropertyMetadata((DependencyObject d, DependencyPropertyChangedEventArgs e) =>
+              {
+                  if(d is DarkWindow win)
+                  {
+                      win.UpdateScreenMargin();
+                  }
+              }));
+
+
+    
         private static void OnItemsSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateSource();
         private static void OnStretchImagePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateStretchImageSource();
 
         private static void OnOpacityBackgroundPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateOpacityBackground();
 
         private static void OnBackgroundImageBluredPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateBackgroundImage();
+        
+        public Size ScreenMargin
+        {
+            get => (Size)GetValue(ScreenMarginProperty);
+            set => SetValue(ScreenMarginProperty, value);
+        }
 
         public double BackgroundImageBlured
         {
@@ -125,7 +146,7 @@ namespace WPF.DarkGalaxy.Controls
                 return _HANDLE;
             }
         }
-        private Helper.Enums.AccentState _AccentState = Helper.Enums.AccentState.ACCENT_ENABLE_BLURBEHIND;
+        private Helper.Enums.AccentState _AccentState = Helper.Enums.AccentState.ACCENT_DISABLED;
         public Helper.Enums.AccentState AccentState
         {
             get
@@ -161,6 +182,14 @@ namespace WPF.DarkGalaxy.Controls
         public DarkWindow()
         {
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.Loaded += DarkWindow_Loaded;
+        }
+
+      
+
+        private void DarkWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.UpdateScreenMargin();
         }
 
         public override void OnApplyTemplate()
@@ -177,6 +206,7 @@ namespace WPF.DarkGalaxy.Controls
             this._PART_WindowBackground = this.GetTemplateChild(PART_WindowBackground) as Border;
 
             this.UpdateSource();
+          
             if (this.btnMax != null)
             {
                 this.btnMax.Click += btnMax_Click;
@@ -209,6 +239,24 @@ namespace WPF.DarkGalaxy.Controls
         void btnMax_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Maximized;
+        }
+
+        void UpdateScreenMargin()
+        {
+            if (this.ScreenMargin.Width == 0 || this.ScreenMargin.Height == 0)
+                return;
+
+            NativeMonitorInfo nativeMonitorInfo = new NativeMonitorInfo();
+            Size size_window = new Size();
+            if (NativeMonitors.MonitorFromWindow(this.HANDLE, ref nativeMonitorInfo, ref size_window))
+            {
+                double s_w = size_window.Width * this.ScreenMargin.Width;
+                double s_h = size_window.Height * this.ScreenMargin.Height;
+                this.Width = s_w <= this.MinWidth ? 0 : s_w;
+                this.Height = s_h <= this.MinHeight ? 0 : s_h;
+            }
+
+
         }
         void UpdateOpacityBackground()
         {

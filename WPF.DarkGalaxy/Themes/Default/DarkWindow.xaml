@@ -11,9 +11,10 @@
 
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="Width" Value="1200"/>
+        <Setter Property="Width" Value="1400"/>
         <Setter Property="Height" Value="720"/>
-
+        <Setter Property="MinWidth" Value="10"/>
+        <Setter Property="MinHeight" Value="10"/>
         <Setter Property="shell:WindowChrome.WindowChrome">
             <Setter.Value>
                 <shell:WindowChrome CaptionHeight="30" CornerRadius="8"/>
@@ -28,7 +29,7 @@
 
                         <Grid>
                             <Border x:Name="PART_WindowBackground" CornerRadius="8" Background="{TemplateBinding Background}"/>
-                            <Border Visibility="Collapsed" Panel.ZIndex="-10" CornerRadius="8" >
+                            <Border Panel.ZIndex="-10" CornerRadius="8" >
                                 <Border.Background>
                                     <ImageBrush Opacity="0.4"  x:Name="PART_BackgroundImage"/>
 
@@ -44,7 +45,7 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <Border Height="35" Margin="0,0,2,0" Name="PART_Title">
+                                <Border  Height="35" Margin="0,0,1,0" Name="PART_Title">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
@@ -91,7 +92,7 @@
                                             </part_controls:PART_Button>
 
 
-                                            <part_controls:PART_Button x:Name="PART_CloseButton" Style="{DynamicResource PART_Button.base}">
+                                            <part_controls:PART_Button CornerRadius="4,8,4,4"  x:Name="PART_CloseButton" Style="{DynamicResource PART_Button.base}">
                                                 <Path Margin="5" Height="11" Stretch="Uniform" Fill="{DynamicResource Path.color.base}" Data="{DynamicResource svgico.close}"/>
                                             </part_controls:PART_Button>
 

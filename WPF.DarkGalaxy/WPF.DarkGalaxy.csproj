@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-    <ImplicitUsings>enable</ImplicitUsings>
-     
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWindowsForms>false</UseWindowsForms>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Themes\Colors\" />
-    <Folder Include="Themes\Icons\" />
-  </ItemGroup>
-   
+	<ItemGroup>
+		<Folder Include="Themes\Colors\" />
+		<Folder Include="Themes\Icons\" />
+	</ItemGroup>
+
 </Project>

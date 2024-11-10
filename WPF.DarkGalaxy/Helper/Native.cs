@@ -32,5 +32,14 @@ namespace WPF.DarkGalaxy.Helper
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr MonitorFromWindow(IntPtr handle, Int32 flags);
+
+
+        [DllImport("user32.dll")]
+        public static extern Boolean GetMonitorInfo(IntPtr hMonitor, NativeMonitorInfo lpmi);
+
+
     }
 }

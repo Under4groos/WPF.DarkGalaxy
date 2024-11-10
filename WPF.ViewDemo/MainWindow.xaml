@@ -10,11 +10,15 @@
         Topmost="True"
         xmlns:wpf="http://github.com/Under4groos/WPF.DarkGalaxy"
         Style="{DynamicResource win}" 
-        IsBlured="True"
-        AccentState="ACCENT_ENABLE_BLURBEHIND"         
+        
+        IsBlured="True"  
+        AccentState="ACCENT_DISABLED"
         StretchImage="Fill"
-        OpacityBackground="0.7"     
+        OpacityBackground="0.5"     
         BackgroundImageBlured="0"
+       
+        
+        Icon="C:\Users\Owner\source\repos\WPF.DarkGalaxy\WPF.ViewDemo\Resource\chrome_xDFaq2H1jo.png"        
         >
     <Grid >
         <Grid.ContextMenu>

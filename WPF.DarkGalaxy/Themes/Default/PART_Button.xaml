@@ -11,11 +11,11 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="shell:WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
-
+        <Setter Property="PART_Button:CornerRadius" Value="2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="2" Background="{TemplateBinding Background}">
+                    <Border x:Name="PART_Border" CornerRadius="2" Background="{TemplateBinding Background}">
                         <Grid>
 
                             <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" 
@@ -46,17 +46,20 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="shell:WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
-
+        <Setter Property="PART_Button:CornerRadius" Value="2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="2" Background="{TemplateBinding Background}">
-                        <Grid>
+                    <Grid Background="Transparent">
+                        <Border Margin="2"   x:Name="PART_Border" CornerRadius="2" Background="{TemplateBinding Background}">
+
 
                             <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" 
-                                          HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,5,10,5" />
-                        </Grid>
-                    </Border>
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,5,10,5" />
+
+                        </Border>
+                    </Grid>
+
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -74,6 +77,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    
+
+
 </ResourceDictionary>
