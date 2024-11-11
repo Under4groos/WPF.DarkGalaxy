@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows;
-using System.Collections;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Windows.Interop;
-using WPF.DarkGalaxy.Helper;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Effects;
+using System.Windows.Media.Imaging;
+using WPF.DarkGalaxy.Helper;
 using WPF.DarkGalaxy.Helper.Structures;
+using WPF.DarkGalaxy.Sys;
 
 namespace WPF.DarkGalaxy.Controls
 {
@@ -21,175 +16,167 @@ namespace WPF.DarkGalaxy.Controls
     [TemplatePart(Name = PART_RestoreButton, Type = typeof(Button))]
     [TemplatePart(Name = PART_CloseButton, Type = typeof(Button))]
     [TemplatePart(Name = PART_LeftItems, Type = typeof(StackPanel))]
-    public class DarkWindow : System.Windows.Window
+    public class DarkWindow : Base_DarkWindow
     {
-        private const string PART_MaxButton = "PART_MaxButton";
-        private const string PART_MinButton = "PART_MinButton";
-        private const string PART_RestoreButton = "PART_RestoreButton";
-        private const string PART_CloseButton = "PART_CloseButton";
-        private const string PART_BackgroundImage = "PART_BackgroundImage";
-        private const string PART_LeftItems = "PART_LeftItems";
-        private const string PART_RightItems = "PART_RightItems";
-        private const string PART_BackgroundBlur = "PART_BackgroundBlur";
-        private const string PART_WindowBackground = "PART_WindowBackground";
+        
 
 
-        private Button btnMax;
-        private Button btnMin;
-        private Button btnRestore;
-        private Button btnClose;
-        private ImageBrush imgBackgroundImage;
-        private Border _PART_WindowBackground;
-        public StackPanel LItems;
-        public StackPanel RItems;
-        private bool _IsBlured
-        {
-            get; set;
-        }
-        private IntPtr _HANDLE = IntPtr.Zero;
-        private BlurEffect blurEffect;
+
+        protected ImageBrush imgBackgroundImage;
+        protected Border _PART_WindowBackground;
+        protected StackPanel LItems;
+        protected StackPanel RItems;
+       
+        protected BlurEffect blurEffect;
 
 
         static DarkWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(DarkWindow), new FrameworkPropertyMetadata(typeof(DarkWindow)));
+
         }
+
+
 
         #region Binding
-        public static readonly DependencyProperty OpacityBackgroundProperty =
-           DependencyProperty.Register(
-               nameof(OpacityBackground),
-               typeof(double),
-               typeof(DarkWindow),
-               new FrameworkPropertyMetadata(OnOpacityBackgroundPropertyChanged));
-
-
-        public static readonly DependencyProperty BackgroundImageProperty =
-           DependencyProperty.Register(
-               nameof(BackgroundImage),
-               typeof(string),
-               typeof(DarkWindow),
-               new FrameworkPropertyMetadata(OnItemsSourcePropertyChanged));
-        public static readonly DependencyProperty StretchProperty =
-           DependencyProperty.Register(
-               nameof(StretchImage),
-               typeof(Stretch),
-               typeof(DarkWindow),
-               new FrameworkPropertyMetadata(OnStretchImagePropertyChanged));
-
-        public static readonly DependencyProperty BackgroundImageBluredProperty =
-          DependencyProperty.Register(
-              nameof(BackgroundImageBlured),
-              typeof(double),
-              typeof(DarkWindow),
-              new FrameworkPropertyMetadata(OnBackgroundImageBluredPropertyChanged));
-
-        public static readonly DependencyProperty ScreenMarginProperty =
-          DependencyProperty.Register(
-              nameof(ScreenMargin),
-              typeof(Size),
-              typeof(DarkWindow),
-              new FrameworkPropertyMetadata((DependencyObject d, DependencyPropertyChangedEventArgs e) =>
-              {
-                  if(d is DarkWindow win)
-                  {
-                      win.UpdateScreenMargin();
-                  }
-              }));
-
-
-    
-        private static void OnItemsSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateSource();
-        private static void OnStretchImagePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateStretchImageSource();
-
-        private static void OnOpacityBackgroundPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateOpacityBackground();
-
-        private static void OnBackgroundImageBluredPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DarkWindow)d).UpdateBackgroundImage();
-        
-        public Size ScreenMargin
-        {
-            get => (Size)GetValue(ScreenMarginProperty);
-            set => SetValue(ScreenMarginProperty, value);
-        }
-
-        public double BackgroundImageBlured
-        {
-            get => (double)GetValue(BackgroundImageBluredProperty);
-            set => SetValue(BackgroundImageBluredProperty, value);
-        }
-        public string BackgroundImage
-        {
-            get => (string)GetValue(BackgroundImageProperty);
-            set => SetValue(BackgroundImageProperty, value);
-        }
+        #region OpacityBackground
+        public static readonly DependencyProperty OpacityBackgroundProperty = SysDependencyProperty<DarkWindow>.RegisterA(
+           nameof(OpacityBackground),
+           typeof(double),
+           typeof(DarkWindow),
+           (o, b) =>
+           {
+               o.Update_OpacityBackground();
+           }
+       );
         public double OpacityBackground
         {
             get => (double)GetValue(OpacityBackgroundProperty);
             set => SetValue(OpacityBackgroundProperty, value);
         }
+        #endregion
+        #region StretchProperty
+        public static readonly DependencyProperty StretchProperty = SysDependencyProperty<DarkWindow>.RegisterA(
+           nameof(StretchImage),
+           typeof(Stretch),
+           typeof(DarkWindow),
+           (o, b) =>
+           {
+               o.Update_StretchImageSource();
+           }
+        );
         public Stretch StretchImage
         {
             get => (Stretch)GetValue(StretchProperty);
             set => SetValue(StretchProperty, value);
+        } 
+        #endregion
+        #region BackgroundImageBlured
+        public static readonly DependencyProperty BackgroundImageBluredProperty = SysDependencyProperty<DarkWindow>.RegisterA(
+           nameof(BackgroundImageBlured),
+           typeof(double),
+           typeof(DarkWindow),
+           (o, b) =>
+           {
+               o.Update_BackgroundImage();
+           }
+        );
+        public double BackgroundImageBlured
+        {
+            get => (double)GetValue(BackgroundImageBluredProperty);
+            set => SetValue(BackgroundImageBluredProperty, value);
         }
         #endregion
-
-
-
-        #region nobinding
-        public IntPtr HANDLE
+        #region ScreenMargin
+        public static readonly DependencyProperty ScreenMarginProperty = SysDependencyProperty<DarkWindow>.RegisterA(
+           nameof(ScreenMargin),
+           typeof(Size),
+           typeof(DarkWindow),
+           (o, b) =>
+           {
+               o.Update_ScreenMargin();
+           }
+        );
+        public Size ScreenMargin
         {
-            get
-            {
-                if (_HANDLE == IntPtr.Zero)
-                    _HANDLE = new WindowInteropHelper(this).Handle;
-                return _HANDLE;
-            }
+            get => (Size)GetValue(ScreenMarginProperty);
+            set => SetValue(ScreenMarginProperty, value);
         }
-        private Helper.Enums.AccentState _AccentState = Helper.Enums.AccentState.ACCENT_DISABLED;
+        #endregion
+        #region blured
+        public static readonly DependencyProperty IsBlurProperty = SysDependencyProperty<DarkWindow>.RegisterA(
+          nameof(IsBlur),
+          typeof(bool),
+          typeof(DarkWindow),
+          (o, b) =>
+          {
+              o.Update_Blur();
+          }
+        );
+        public bool IsBlur
+        {
+            get => (bool)GetValue(IsBlurProperty);
+            set => SetValue(IsBlurProperty, value);
+        }
+        #endregion
+        #region BackgroundImage
+        public static readonly DependencyProperty BackgroundImageProperty = SysDependencyProperty<DarkWindow>.RegisterA(
+            nameof(BackgroundImage),
+            typeof(string),
+            typeof(DarkWindow),
+            (o, b) =>
+            {
+                o.Update_Source();
+            }
+        );
+        public string BackgroundImage
+        {
+            get => (string)GetValue(BackgroundImageProperty);
+            set => SetValue(BackgroundImageProperty, value);
+        }
+        #endregion
+        #region AccentState
+        public static readonly DependencyProperty AccentStateProperty = SysDependencyProperty<DarkWindow>.RegisterA(
+          nameof(AccentState),
+          typeof(Helper.Enums.AccentState),
+          typeof(DarkWindow),
+          (o, b) =>
+          {
+              o.Update_AccentState();
+          }
+        );
         public Helper.Enums.AccentState AccentState
         {
-            get
-            {
-                return _AccentState;
-            }
-            set
-            {
-                _AccentState = value;
-                IsBlured = IsBlured;
-            }
-        }
-        public bool IsBlured
-        {
-            get
-            {
-                return _IsBlured;
-            }
-            set
-            {
-               
-                WindowBlured.Blur(
-                    AccentState,
-                    this.HANDLE,
-                    value
-                    );
-
-                _IsBlured = value;
-            }
+            get => (Helper.Enums.AccentState)GetValue(AccentStateProperty);
+            set => SetValue(AccentStateProperty, value);
         }
         #endregion
-
-        public DarkWindow()
+        #region BackgroundImage
+        public static readonly DependencyProperty BackgroundImageOpacityProperty = SysDependencyProperty<DarkWindow>.RegisterW(
+            nameof(BackgroundImageOpacity),
+            typeof(double),
+            typeof(DarkWindow),
+            (double)0.5,
+            (o, b) =>
+            {
+                o.Update_Source();
+            }
+        );
+        public double BackgroundImageOpacity
         {
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.Loaded += DarkWindow_Loaded;
+            get => (double)GetValue(BackgroundImageOpacityProperty);
+            set => SetValue(BackgroundImageOpacityProperty, value);
         }
+        #endregion
+        #endregion
 
-      
 
-        private void DarkWindow_Loaded(object sender, RoutedEventArgs e)
+        public override void OnLoadedWindow(object sender, RoutedEventArgs e)
         {
-            this.UpdateScreenMargin();
+            base.OnLoadedWindow(sender, e);
+            this.Update_ScreenMargin();
+            this.Update_AccentState();
+            this.Update_BackgroundImage();
         }
 
         public override void OnApplyTemplate()
@@ -205,8 +192,8 @@ namespace WPF.DarkGalaxy.Controls
             this.blurEffect = this.GetTemplateChild(PART_BackgroundBlur) as BlurEffect;
             this._PART_WindowBackground = this.GetTemplateChild(PART_WindowBackground) as Border;
 
-            this.UpdateSource();
-          
+            this.Update_Source();
+
             if (this.btnMax != null)
             {
                 this.btnMax.Click += btnMax_Click;
@@ -241,7 +228,7 @@ namespace WPF.DarkGalaxy.Controls
             this.WindowState = WindowState.Maximized;
         }
 
-        void UpdateScreenMargin()
+        void Update_ScreenMargin()
         {
             if (this.ScreenMargin.Width == 0 || this.ScreenMargin.Height == 0)
                 return;
@@ -258,23 +245,22 @@ namespace WPF.DarkGalaxy.Controls
 
 
         }
-        void UpdateOpacityBackground()
+        void Update_OpacityBackground()
         {
             if (this.imgBackgroundImage != null)
             {
                 this._PART_WindowBackground.Opacity = this.OpacityBackground;
-
+                this.imgBackgroundImage.Opacity = this.BackgroundImageOpacity;
             }
 
         }
-        void UpdateBackgroundImage()
+        void Update_BackgroundImage()
         {
             if (this.blurEffect != null)
+            {
+                
                 this.blurEffect.Radius = this.BackgroundImageBlured;
-
-        }
-        void UpdateSource()
-        {
+            }
             if (this.imgBackgroundImage != null && File.Exists(BackgroundImage))
             {
                 var bi = new BitmapImage();
@@ -286,9 +272,14 @@ namespace WPF.DarkGalaxy.Controls
                 this.imgBackgroundImage.ImageSource = bi;
                 this.imgBackgroundImage.Stretch = StretchImage;
             }
-            this.UpdateOpacityBackground();
+
         }
-        void UpdateStretchImageSource()
+        void Update_Source()
+        {
+            
+            this.Update_OpacityBackground();
+        }
+        void Update_StretchImageSource()
         {
             if (this.imgBackgroundImage != null)
             {
@@ -296,5 +287,19 @@ namespace WPF.DarkGalaxy.Controls
 
             }
         }
-    }
+        void Update_Blur()
+        {
+            Debug.WriteLine(true);
+            WindowBlured.Blur(
+                AccentState,
+                this.HANDLE,
+                this.IsBlur
+            );
+        }
+
+        void Update_AccentState()
+        {
+            this.Update_Blur();
+        }
+    }            
 }
