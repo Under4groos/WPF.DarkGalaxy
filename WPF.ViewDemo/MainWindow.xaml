@@ -19,7 +19,7 @@
         StretchImage="Fill"
         
         OpacityBackground="0.1"     
-        BackgroundImageBlured="5"
+        BackgroundImageBlured="15"
          
         BackgroundImage="C:\Users\Owner\source\repos\WPF.DarkGalaxy\WPF.ViewDemo\Resource\chrome_5WlOqtQtw8.png"
         Icon="C:\Users\Owner\source\repos\WPF.DarkGalaxy\WPF.ViewDemo\Resource\chrome_xDFaq2H1jo.png"        
@@ -93,7 +93,7 @@
                             </StackPanel>
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="TextBox">
+                    <TabItem Header="TreeView">
                         <TreeView>
                             <TreeViewItem Header="t-1">
                                 <TreeViewItem Header="t-1.t-2">
@@ -109,6 +109,24 @@
                             </TreeViewItem>
 
                         </TreeView>
+                    </TabItem>
+                    <TabItem Header="Scrol">
+                        <ScrollViewer Margin="5" VerticalScrollBarVisibility="Hidden">
+                            <StackPanel >
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                                <Border Margin="2" Style="{DynamicResource border.style.1}" Height="50"/>
+                            </StackPanel>
+                        </ScrollViewer>
                     </TabItem>
                 </TabControl>
 

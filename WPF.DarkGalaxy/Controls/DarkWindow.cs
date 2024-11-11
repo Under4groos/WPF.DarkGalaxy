@@ -151,12 +151,12 @@ namespace WPF.DarkGalaxy.Controls
             set => SetValue(AccentStateProperty, value);
         }
         #endregion
-        #region BackgroundImage
+        #region BackgroundImageOpacity
         public static readonly DependencyProperty BackgroundImageOpacityProperty = SysDependencyProperty<DarkWindow>.RegisterW(
             nameof(BackgroundImageOpacity),
             typeof(double),
             typeof(DarkWindow),
-            (double)0.5,
+            (double)0.1,
             (o, b) =>
             {
                 o.Update_Source();
