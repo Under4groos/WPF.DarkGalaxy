@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF.ViewDemo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800"
+        Title="MainWindow" Height="650" Width="1000"
         Topmost="True"
         xmlns:wpf="http://github.com/Under4groos/WPF.DarkGalaxy"
         Style="{DynamicResource win}" 
@@ -18,11 +18,11 @@
                  
         StretchImage="Fill"
         
-        OpacityBackground="0.1"     
-        BackgroundImageBlured="15"
-         
-        BackgroundImage="C:\Users\Owner\source\repos\WPF.DarkGalaxy\WPF.ViewDemo\Resource\chrome_5WlOqtQtw8.png"
-        Icon="C:\Users\Owner\source\repos\WPF.DarkGalaxy\WPF.ViewDemo\Resource\chrome_xDFaq2H1jo.png"        
+        OpacityBackground="0.02"     
+        BackgroundImageBlured="2"
+        BackgroundImageOpacity="0.01"
+                 
+           
         >
     <Grid >
         <Grid.ContextMenu>
