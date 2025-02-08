@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Runtime.InteropServices;
 
 namespace WPF.DarkGalaxy.Helper.Structures
 {
@@ -16,7 +10,7 @@ namespace WPF.DarkGalaxy.Helper.Structures
         public Int32 Right;
         public Int32 Bottom;
 
-      
+
 
         public NativeRectangle(Int32 left, Int32 top, Int32 right, Int32 bottom)
         {

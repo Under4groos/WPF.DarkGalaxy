@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 using WPF.DarkGalaxy.Helper.Enums;
 using WPF.DarkGalaxy.Helper.Structures;
 
@@ -14,7 +9,7 @@ namespace WPF.DarkGalaxy.Helper
         [DllImport("user32.dll")]
         public static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
 
-        [DllImport("dwmapi.dll", CharSet = CharSet.Unicode, PreserveSig = false , SetLastError = true)]
+        [DllImport("dwmapi.dll", CharSet = CharSet.Unicode, PreserveSig = false, SetLastError = true)]
         private static extern long DwmSetWindowAttribute(IntPtr hwnd,
             DWMWINDOWATTRIBUTE attribute,
             ref DWM_WINDOW_CORNER_PREFERENCE pvAttribute,
@@ -22,7 +17,7 @@ namespace WPF.DarkGalaxy.Helper
         public static long DwmSetWindowAttribute(IntPtr hwnd, DWMWINDOWATTRIBUTE attribute)
         {
             var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
-            return DwmSetWindowAttribute(hwnd,attribute,ref preference,sizeof(uint));
+            return DwmSetWindowAttribute(hwnd, attribute, ref preference, sizeof(uint));
         }
 
         [DllImport("user32.dll", SetLastError = true)]

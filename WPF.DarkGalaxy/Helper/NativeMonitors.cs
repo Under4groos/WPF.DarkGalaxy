@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
 using WPF.DarkGalaxy.Helper.Enums;
 using WPF.DarkGalaxy.Helper.Structures;
-using System.Windows;
 namespace WPF.DarkGalaxy.Helper
 {
     public static class NativeMonitors
     {
-      
-      
-        public static bool MonitorFromWindow(IntPtr handle , ref NativeMonitorInfo monitorInfo , ref Size SizeScreen)
+
+
+        public static bool MonitorFromWindow(IntPtr handle, ref NativeMonitorInfo monitorInfo, ref Size SizeScreen)
         {
             if (handle == IntPtr.Zero)
                 return false;
-            var monitor = Helper.Native.MonitorFromWindow(handle, (int) MONITOR_DEFAULT.MONITOR_DEFAULTTONEAREST);
+            var monitor = Helper.Native.MonitorFromWindow(handle, (int)MONITOR_DEFAULT.MONITOR_DEFAULTTONEAREST);
             if (monitor == IntPtr.Zero)
                 return false;
 

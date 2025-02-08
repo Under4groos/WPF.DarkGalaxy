@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 using WPF.DarkGalaxy.Helper.Enums;
 using WPF.DarkGalaxy.Helper.Structures;
 
@@ -11,7 +6,7 @@ namespace WPF.DarkGalaxy.Helper
 {
     public static class WindowBlured
     {
-        public static void Blur(AccentState accentState , IntPtr hwnd , bool status)
+        public static void Blur(AccentState accentState, IntPtr hwnd, bool status)
         {
             var accent = new AccentPolicy();
             if (status)

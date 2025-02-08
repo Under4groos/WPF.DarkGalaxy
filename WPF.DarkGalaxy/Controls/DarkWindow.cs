@@ -18,7 +18,7 @@ namespace WPF.DarkGalaxy.Controls
     [TemplatePart(Name = PART_LeftItems, Type = typeof(StackPanel))]
     public class DarkWindow : Base_DarkWindow
     {
-        
+
 
 
 
@@ -26,7 +26,7 @@ namespace WPF.DarkGalaxy.Controls
         protected Border _PART_WindowBackground;
         protected StackPanel LItems;
         protected StackPanel RItems;
-       
+
         protected BlurEffect blurEffect;
 
 
@@ -69,7 +69,7 @@ namespace WPF.DarkGalaxy.Controls
         {
             get => (Stretch)GetValue(StretchProperty);
             set => SetValue(StretchProperty, value);
-        } 
+        }
         #endregion
         #region BackgroundImageBlured
         public static readonly DependencyProperty BackgroundImageBluredProperty = SysDependencyProperty<DarkWindow>.RegisterA(
@@ -258,7 +258,7 @@ namespace WPF.DarkGalaxy.Controls
         {
             if (this.blurEffect != null)
             {
-                
+
                 this.blurEffect.Radius = this.BackgroundImageBlured;
             }
             if (this.imgBackgroundImage != null && File.Exists(BackgroundImage))
@@ -276,7 +276,7 @@ namespace WPF.DarkGalaxy.Controls
         }
         void Update_Source()
         {
-            
+
             this.Update_OpacityBackground();
         }
         void Update_StretchImageSource()
@@ -290,16 +290,16 @@ namespace WPF.DarkGalaxy.Controls
         void Update_Blur()
         {
             Debug.WriteLine(true);
-            WindowBlured.Blur(
-                AccentState,
-                this.HANDLE,
-                this.IsBlur
-            );
+            //WindowBlured.Blur(
+            //    AccentState,
+            //    this.HANDLE,
+            //    this.IsBlur
+            //);
         }
 
         void Update_AccentState()
         {
             this.Update_Blur();
         }
-    }            
+    }
 }

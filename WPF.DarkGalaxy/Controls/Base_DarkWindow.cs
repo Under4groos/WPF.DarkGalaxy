@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 
@@ -21,7 +16,7 @@ namespace WPF.DarkGalaxy.Controls
         protected const string PART_LeftItems = "PART_LeftItems";
         protected const string PART_RightItems = "PART_RightItems";
         protected const string PART_BackgroundBlur = "PART_BackgroundBlur";
-        protected const string PART_WindowBackground = "PART_WindowBackground"; 
+        protected const string PART_WindowBackground = "PART_WindowBackground";
         #endregion
 
 

@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Markup;
@@ -17,9 +15,9 @@ using System.Windows.Markup;
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None,
-                                    
-                                  
-    ResourceDictionaryLocation.SourceAssembly 
+
+
+    ResourceDictionaryLocation.SourceAssembly
 )]
 
 [assembly: XmlnsDefinition("http://github.com/Under4groos/WPF.DarkGalaxy", "WPF.DarkGalaxy.Controls")]

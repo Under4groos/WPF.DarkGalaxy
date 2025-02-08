@@ -18,8 +18,8 @@
                  
         StretchImage="Fill"
         
-        OpacityBackground="0.02"     
-        BackgroundImageBlured="2"
+        OpacityBackground="1"     
+       
         BackgroundImageOpacity="0.01"
                  
            

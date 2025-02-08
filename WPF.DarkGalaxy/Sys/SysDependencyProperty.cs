@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using WPF.DarkGalaxy.Controls;
+﻿using System.Windows;
 
 namespace WPF.DarkGalaxy.Sys
 {
@@ -43,7 +37,7 @@ namespace WPF.DarkGalaxy.Sys
                name,
                propertyType,
                ownerType,
-               new FrameworkPropertyMetadata(value ,(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
+               new FrameworkPropertyMetadata(value, (DependencyObject d, DependencyPropertyChangedEventArgs e) =>
                {
                    if (d is T t)
                    {

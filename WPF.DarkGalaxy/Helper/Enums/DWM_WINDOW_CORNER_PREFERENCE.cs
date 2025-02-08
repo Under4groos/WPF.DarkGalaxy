@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WPF.DarkGalaxy.Helper.Enums
+﻿namespace WPF.DarkGalaxy.Helper.Enums
 {
     public enum DWM_WINDOW_CORNER_PREFERENCE
     {
